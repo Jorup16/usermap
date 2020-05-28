@@ -1,7 +1,7 @@
 <?php
 /**
 *
-* @package Usermap v0.5.x
+* @package Usermap v0.6.x
 * @copyright (c) 2020 Mike-on-Tour
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
@@ -49,6 +49,7 @@ $lang = array_merge($lang, array(
 	'MAP_NORESULT'					=> 'No se encontraron miembros dentro del rango de ',
 	// ACP
 	'ACP_USERMAP'					=> 'Mapa del Usuario',
+	// Settings tab
 	'ACP_USERMAP_SETTINGS'			=> 'Opciones',
 	'ACP_USERMAP_SETTINGS_EXPLAIN'	=> 'Aquí es donde personalizas tu Mapa del Usuario.',
 	'ACP_USERMAP_SETTING_SAVED'		=> 'Configuración para el Mapa del Usuario guardada con éxito.',
@@ -62,7 +63,7 @@ $lang = array_merge($lang, array(
 	'ACP_USERMAP_GEONAMES_TITLE'	=> 'Nombre de usuario para geonames.org',
 	'ACP_USERMAP_GEONAMES_TEXT'		=> 'Mapa del Usuario se basa en los servicios de geonames.org para obtener las coordenadas geográficas de la ubicación del miembro identificado por el código postal y el país, además de la ubicación proporcionada en el perfil del miembro.
 										Por lo tanto hay que registrarse en
-										<a href="http://www.geonames.org/login" target="_blank">
+										<a href="https://www.geonames.org/login" target="_blank">
 										<span style="text-decoration: underline;">geonames.org/login</span></a>
 										de forma obligatoria. El nombre de usuario registrado debe de ingresarse aquí.<br>
 										Cada solicitud cuesta 1 crédito, con el servicio gratuito está limitado a un máximo de
@@ -75,6 +76,34 @@ $lang = array_merge($lang, array(
 	'ACP_USERMAP_GEONAMESUSER'		=> 'Nombre(s) de usuario(s) para geonames.org',
 	'ACP_USERMAP_GEONAMESUSER_ERR'	=> '¡Es obligatorio proporcionar al menos un nombre de usuario válido para geonames.org!',
 	'ACP_USERMAP_PROFILE_ERROR'		=> 'Esta acción no pudo concluirse con éxito ya que no se proporcionó un usuario de Geonames.org en la pestaña de configuración de Mapa de usuario. ¡Por favor hazlo inmediatamente!',
+'ACP_USERMAP_GOOGLE_TITLE'		=> 'Configuración para usar la API de Google Maps',
+'ACP_USERMAP_GOOGLE_TEXT'		=> 'geonames.org solo admite una lista limitada de países (ver lista
+										<a href="https://www.geonames.org/postal-codes/" target="_blank">
+										<span style="text-decoration: underline;">aquí</span></a>),
+										si necesitas considerar países que no están en esta lista, es posible que desees utilizar adicionalmente el servicio de Google Maps.
+										El uso del servicio Google Maps se puede habilitar aquí.<br>
+										Si eliges utilizar el servicio Google Maps, necesitas obtener una clave API suscribiéndote en
+										<a href="https://developers.google.com/maps/documentation/embed/get-api-key" target="_blank">
+										<span style="text-decoration: underline;">Clave API de Google Maps</span></a>. Por favor sigue las instrucciones
+										y presta atención a la activación de la "API de geocodificación".',
+'ACP_USERMAP_GOOGLE_ENABLE'		=> '¿Habilitar el uso de la API de Google Maps?',
+'ACP_USERMAP_GOOGLE_KEY'		=> 'Ingresa tu clave de API de Google Maps',
+'ACP_USERMAP_APIKEY_ERROR'		=> '¡Esta acción no se pudo concluir con éxito ya que no se proporcionó una clave API de Google Maps después de activar esta API. ¡Por favor proporciona una clave válida!',
+'ACP_USERMAP_GOOGLE_FORCE'		=> 'Código de países forzados a ser buscados con la API de Google Maps',
+'ACP_USERMAP_GOOGLE_FORCE_TXT'	=> 'geonames.org por razones de derechos de autor, considera solo algunos códigos postales para algunos países, lo que conlleva a
+										coordenadas muy aproximadas. Para obtener una lista de esos países, consulta
+										<a href="http://download.geonames.org/export/zip/readme.txt" target="_blank">
+										<span style="text-decoration: underline;">este</span></a>texto.<br>
+										La API de Google Maps debería proporcionar resultados más detallados para esos países. Si deseas hacer cumplir la búsqueda
+										usando la API de Google Maps en lugar de geonames.org, ingresa las dos letras del país del código que deseas, seperadas
+										por comas.',
+'ACP_USERMAP_DATABASE_TITLE'	=> 'Usando la base de datos interna',
+'ACP_USERMAP_DATABASE_TEXT'		=> 'Incluso Google Maps puede no proporcionar una solución válida para algunos países (por ejemplo Israel). En este caso puedes usar una
+										base de datos interna para la cual debe proporcionar los datos, por favor elige la pestaña "Base de datos interna" para obtener más información.<br>
+										Es posible que desees utilizarlo de esta manera para los usuarios que viven en un país no compatible con geonames.org si no deseas utilizar
+										la API de Google Maps.',
+'ACP_USERMAP_DATABASE_ENABLE'	=> '¿Habilitar el uso de la base de datos interna?',
+	// Language packs tab
 	'ACP_USERMAP_LANGS'				=> 'Paquetes de idiomas',
 	'ACP_USERMAP_LANGS_EXPLAIN'		=> 'Aquí es donde puedes instalar los paquetes de idiomas adicionales para el Mapa del Usuario. Esto puede ser necesario después de agregar
 										paquetes de idiomas para el Mapa del Usuario después de su primera activación porque los datos no han sido
@@ -90,6 +119,28 @@ $lang = array_merge($lang, array(
 	'ACP_USERMAP_LANGPACK_LOCAL'	=> 'Nombre local',
 	'ACP_USERMAP_LANGPACK_ISO'		=> 'ISO',
 	'ACP_USERMAP_NO_ENTRIES'		=> 'No se han encontrado paquetes de idiomas',
+	// Internal database tab
+'ACP_USERMAP_DATABASE'			=> 'Base de datos interna',
+'ACP_USERMAP_DATABASE_EXPLAIN'	=> 'Esta tabla contiene todos los datos disponibles de la base de datos interna. En la columna de la derecha encontrarás un enlace a
+										para eliminar la línea respectiva.<br>
+										Debajo de esta tabla puede agregar nuevos datos.',
+'ACP_USERMAP_DATABASE_DATA'		=> 'Datos disponibles actualmente',
+'ACP_USERMAP_DATABASE_CC'		=> 'Código ISO del país',
+'ACP_USERMAP_DATABASE_ZIPCODE'	=> 'Código Postal',
+'ACP_USERMAP_DATABASE_LAT'		=> 'Latitud',
+'ACP_USERMAP_DATABASE_LNG'		=> 'Longitud',
+'ACP_USERMAP_DATABASE_EDIT'		=> 'Editar',
+'ACP_USERMAP_DATABASE_NOENTRY'	=> 'Datos no disponibles',
+'ACP_USERMAP_DATABASE_NEW'		=> 'Nueva entrada en la base de datos',
+'ACP_USERMAP_DATABASE_CC_EXP'	=> 'Ingresa el código de país con las dos letras mayúsculas del país al que se asignará esta entrada.',
+'ACP_USERMAP_DATABASE_ZC_EXP'	=> 'Por favor ingresa el código postal al que se asignará esta entrada, solo se permiten letras mayúsculas, dígitos y guión.',
+'ACP_USERMAP_DATABASE_ERROR'	=> '¡El campo >%1$s< no debe de estar vacío!',
+'ACP_USERMAP_DATABASE_BIG_ERR'	=> '¡El campo no debe estar vacío!',
+'ACP_USERMAP_DATABASE_SUCCESS'	=> 'Los cambios en la base de datos interna han sido guardados con éxito.',
+'ACP_USERMAP_DATABASE_INVALID'	=> 'Esta combinación de código de país y código postal ya existe, ¡no debe usarse por segunda vez!<br>
+										¡No se pudo guardar esta entrada en la base de datos interna!',
+	// ERROR LOG
+'LOG_USERMAP_GOOGLE_ERROR'		=> 'La API de Google Maps falló durante la ejecución con el siguiente mensaje de error<br>» %s',
 	// UCP
 	'MOT_ZIP'						=> 'Código Postal',
 	'MOT_ZIP_EXP'					=> 'Por favor ingresa el código postal de tu ubicación para ser listado en el Mapa del Usuario.<br>(Solo mayúsculas, números y guiones)',
