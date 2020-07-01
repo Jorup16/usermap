@@ -47,6 +47,11 @@ $lang = array_merge($lang, array(
 	'MAP_SEARCH'					=> 'Buscar miembros en el código postal %1$s en un rango de ',
 	'MAP_RESULT'					=> 'muestra el siguiente resultado: ',
 	'MAP_NORESULT'					=> 'No se encontraron miembros dentro del rango de ',
+'POI_LEGEND_TITLE'				=> 'Leyenda para los Puntos de Interés',
+'STREET_DESC'					=> 'Mapa de la calle',
+'TOPO_DESC'						=> 'Mapa topográfico',
+'USER_DESC'						=> 'Usuarios',
+'POI_DESC'						=> 'Puntos de Interés',
 	// ACP
 	'ACP_USERMAP'					=> 'Mapa del Usuario',
 	// Settings tab
@@ -71,13 +76,15 @@ $lang = array_merge($lang, array(
 										registrar un usuario por 1,000 a 1,500 miembros. De lo contrario, tus usuarios puede que vean un
 										mensaje de error al ingresar sus datos de perfil (código postal y país).<br>
 										Múltiples nombres de usuario deben estar separados por comas.<br>
-										¡ATENCIÓN: debes habilitar (activar) el servicio deseado después del primer inicio de sesión
-										en geonames.org usando el enlace con su "nombre de usuario"!',
+										<strong>¡ATENCIÓN:</strong> debes habilitar (activar) el servicio deseado después del primer inicio de sesión
+										en geonames.org usando el
+										<a href="https://www.geonames.org/manageaccount" target="_blank">
+										<span style="text-decoration: underline;">enlace</span></a>!!',
 	'ACP_USERMAP_GEONAMESUSER'		=> 'Nombre(s) de usuario(s) para geonames.org',
 	'ACP_USERMAP_GEONAMESUSER_ERR'	=> '¡Es obligatorio proporcionar al menos un nombre de usuario válido para geonames.org!',
-	'ACP_USERMAP_PROFILE_ERROR'		=> 'Esta acción no pudo concluirse con éxito ya que no se proporcionó un usuario de Geonames.org en la pestaña de configuración de Mapa de usuario. ¡Por favor hazlo inmediatamente!',
-'ACP_USERMAP_GOOGLE_TITLE'		=> 'Configuración para usar la API de Google Maps',
-'ACP_USERMAP_GOOGLE_TEXT'		=> 'geonames.org solo admite una lista limitada de países (ver lista
+	'ACP_USERMAP_PROFILE_ERROR'		=> 'Esta acción no pudo concluirse con éxito ya que no se proporcionó un usuario de Geonames.org en la pestaña de configuración de Mapa del usuario. ¡Por favor hazlo inmediatamente!',
+	'ACP_USERMAP_GOOGLE_TITLE'		=> 'Configuración para usar la API de Google Maps',
+	'ACP_USERMAP_GOOGLE_TEXT'		=> 'geonames.org solo admite una lista limitada de países (ver lista
 										<a href="https://www.geonames.org/postal-codes/" target="_blank">
 										<span style="text-decoration: underline;">aquí</span></a>),
 										si necesitas considerar países que no están en esta lista, es posible que desees utilizar adicionalmente el servicio de Google Maps.
@@ -86,29 +93,49 @@ $lang = array_merge($lang, array(
 										<a href="https://developers.google.com/maps/documentation/embed/get-api-key" target="_blank">
 										<span style="text-decoration: underline;">Clave API de Google Maps</span></a>. Por favor sigue las instrucciones
 										y presta atención a la activación de la "API de geocodificación".',
-'ACP_USERMAP_GOOGLE_ENABLE'		=> '¿Habilitar el uso de la API de Google Maps?',
-'ACP_USERMAP_GOOGLE_KEY'		=> 'Ingresa tu clave de API de Google Maps',
-'ACP_USERMAP_APIKEY_ERROR'		=> '¡Esta acción no se pudo concluir con éxito ya que no se proporcionó una clave API de Google Maps después de activar esta API. ¡Por favor proporciona una clave válida!',
-'ACP_USERMAP_GOOGLE_FORCE'		=> 'Código de países forzados a ser buscados con la API de Google Maps',
-'ACP_USERMAP_GOOGLE_FORCE_TXT'	=> 'geonames.org por razones de derechos de autor, considera solo algunos códigos postales para algunos países, lo que conlleva a
+	'ACP_USERMAP_GOOGLE_ENABLE'		=> '¿Habilitar el uso de la API de Google Maps?',
+	'ACP_USERMAP_GOOGLE_KEY'		=> 'Ingresa tu clave de API de Google Maps',
+	'ACP_USERMAP_APIKEY_ERROR'		=> '¡Esta acción no se pudo concluir con éxito ya que no se proporcionó una clave API de Google Maps después de activar esta API. ¡Por favor proporciona una clave válida!',
+	'ACP_USERMAP_GOOGLE_FORCE'		=> 'Código de países forzados a ser buscados con la API de Google Maps',
+	'ACP_USERMAP_GOOGLE_FORCE_TXT'	=> 'geonames.org por razones de derechos de autor, considera solo algunos códigos postales para algunos países, lo que conlleva a
 										coordenadas muy aproximadas. Para obtener una lista de esos países, consulta
 										<a href="http://download.geonames.org/export/zip/readme.txt" target="_blank">
 										<span style="text-decoration: underline;">este</span></a>texto.<br>
 										La API de Google Maps debería proporcionar resultados más detallados para esos países. Si deseas hacer cumplir la búsqueda
 										usando la API de Google Maps en lugar de geonames.org, ingresa las dos letras del país del código que deseas, seperadas
 										por comas.',
-'ACP_USERMAP_DATABASE_TITLE'	=> 'Usando la base de datos interna',
-'ACP_USERMAP_DATABASE_TEXT'		=> 'Incluso Google Maps puede no proporcionar una solución válida para algunos países (por ejemplo Israel). En este caso puedes usar una
+	'ACP_USERMAP_DATABASE_TITLE'	=> 'Usando la base de datos interna',
+	'ACP_USERMAP_DATABASE_TEXT'		=> 'Incluso Google Maps puede no proporcionar una solución válida para algunos países (por ejemplo Israel). En este caso puedes usar una
 										base de datos interna para la cual debe proporcionar los datos, por favor elige la pestaña "Base de datos interna" para obtener más información.<br>
 										Es posible que desees utilizarlo de esta manera para los usuarios que viven en un país no compatible con geonames.org si no deseas utilizar
 										la API de Google Maps.',
-'ACP_USERMAP_DATABASE_ENABLE'	=> '¿Habilitar el uso de la base de datos interna?',
+	'ACP_USERMAP_DATABASE_ENABLE'	=> '¿Habilitar el uso de la base de datos interna?',
+'ACP_USERMAP_POI_TITLE'			=> 'Mostrar puntos de interés (PDI)',
+'ACP_USERMAP_POI_TEXT'			=> 'Además de mostrar ubicaciones de miembros, El mapa del usuario es capaz de mostrar una superposición adicional con ubicaciones que podrían
+										ser de particular interés para tus miembros, por ejemplo, lugares de reunión y hoteles para ciclistas o arenas deportivas.
+										Puedes elegir la configuración de esta superposición en esta sección.<br>
+										La siguiente sección le permite escribir y editar una descripción que define el significado de sus diferentes categorías de PDI,
+										que se mostrará debajo del mapa como una leyenda.<br>
+										El ingreso y edición de los PDI es tarea de los administradores, todos los elementos necesarios para hacer esto están accesibles a través
+										de la pestaña "Administración de PDI".',
+'ACP_USERMAP_POI_ENABLE'		=> '¿Habilitar visualización de PDI?',
+'ACP_USERMAP_POI_ENABLE_EXP'	=> 'Choosing "Yes" enables displaying the POI overlay with the Usermap. It also activates your choice for the following
+										setting and displaying the legend which you can write and edit in the section below.',
+'ACP_USERMAP_POI_SHOWTOALL'		=> '¿Permitir la visualización de PDI a todos los miembros?',
+'ACP_USERMAP_POI_SHOWTOALL_EXP'	=> 'El mapa del usuario y la superposición de PDI se muestran de forma predeterminada solo para aquellos miembros que han puesto su ubicación en el
+										Mapa del usuario. Si deseas que todos los demás miembros vean también la superposición de PDI, puedes habilitar esto aquí; esos miembros podrán entonces
+										ver solo la superposición de PDI pero no las ubicaciones de los miembros.',
+'ACP_USERMAP_POI_LEGEND'		=> 'Leyenda de PDI',
+'ACP_USERMAP_POI_LGND'			=> 'Escribir y editar la leyenda de PDI',
+'ACP_USERMAP_POI_LGND_EXP'		=> 'El texto que ingreses aquí no debe exceder los 1,000 caracteres, incluidos todos los códigos BBCode y se mostrará debajo del
+										Mapa de usuarios como leyenda si la visualización de PDI está habilitada.<br>
+										Escribir y editar es independiente de todas las demás configuraciones en esta pestaña.',
 	// Language packs tab
 	'ACP_USERMAP_LANGS'				=> 'Paquetes de idiomas',
 	'ACP_USERMAP_LANGS_EXPLAIN'		=> 'Aquí es donde puedes instalar los paquetes de idiomas adicionales para el Mapa del Usuario. Esto puede ser necesario después de agregar
 										paquetes de idiomas para el Mapa del Usuario después de su primera activación porque los datos no han sido
 										incorporados en la lista desplegable para seleccionar el país; esto puedes hacerlo aquí después de cargar el paquete de idioma
-										con un programa ftp en el subdirectorio <italic>language</italic>  de esta extensión.',
+										con un programa ftp en el subdirectorio <i>language</i>  de esta extensión.',
 	'ACP_USERMAP_INSTALLABLE_LANG'	=> 'Paquetes de idiomas listos para la instalación',
 	'ACP_USERMAP_INSTALL_LANG_EXP'	=> 'Paquetes de idioma de Mapa del Usuario esperando para instalarse.',
 	'ACP_USERMAP_MISSING_LANG'		=> 'Paquetes de idiomas faltantes',
@@ -120,27 +147,45 @@ $lang = array_merge($lang, array(
 	'ACP_USERMAP_LANGPACK_ISO'		=> 'ISO',
 	'ACP_USERMAP_NO_ENTRIES'		=> 'No se han encontrado paquetes de idiomas',
 	// Internal database tab
-'ACP_USERMAP_DATABASE'			=> 'Base de datos interna',
-'ACP_USERMAP_DATABASE_EXPLAIN'	=> 'Esta tabla contiene todos los datos disponibles de la base de datos interna. En la columna de la derecha encontrarás un enlace a
+	'ACP_USERMAP_DATABASE'			=> 'Base de datos interna',
+	'ACP_USERMAP_DATABASE_EXPLAIN'	=> 'Esta tabla contiene todos los datos disponibles de la base de datos interna. En la columna de la derecha encontrarás un enlace a
 										para eliminar la línea respectiva.<br>
 										Debajo de esta tabla puede agregar nuevos datos.',
-'ACP_USERMAP_DATABASE_DATA'		=> 'Datos disponibles actualmente',
-'ACP_USERMAP_DATABASE_CC'		=> 'Código ISO del país',
-'ACP_USERMAP_DATABASE_ZIPCODE'	=> 'Código Postal',
-'ACP_USERMAP_DATABASE_LAT'		=> 'Latitud',
-'ACP_USERMAP_DATABASE_LNG'		=> 'Longitud',
-'ACP_USERMAP_DATABASE_EDIT'		=> 'Editar',
-'ACP_USERMAP_DATABASE_NOENTRY'	=> 'Datos no disponibles',
-'ACP_USERMAP_DATABASE_NEW'		=> 'Nueva entrada en la base de datos',
-'ACP_USERMAP_DATABASE_CC_EXP'	=> 'Ingresa el código de país con las dos letras mayúsculas del país al que se asignará esta entrada.',
-'ACP_USERMAP_DATABASE_ZC_EXP'	=> 'Por favor ingresa el código postal al que se asignará esta entrada, solo se permiten letras mayúsculas, dígitos y guión.',
-'ACP_USERMAP_DATABASE_ERROR'	=> '¡El campo >%1$s< no debe de estar vacío!',
-'ACP_USERMAP_DATABASE_BIG_ERR'	=> '¡El campo no debe estar vacío!',
-'ACP_USERMAP_DATABASE_SUCCESS'	=> 'Los cambios en la base de datos interna han sido guardados con éxito.',
-'ACP_USERMAP_DATABASE_INVALID'	=> 'Esta combinación de código de país y código postal ya existe, ¡no debe usarse por segunda vez!<br>
+	'ACP_USERMAP_DATABASE_DATA'		=> 'Datos disponibles actualmente',
+	'ACP_USERMAP_DATABASE_CC'		=> 'Código ISO del país',
+	'ACP_USERMAP_DATABASE_ZIPCODE'	=> 'Código Postal',
+	'ACP_USERMAP_DATABASE_LAT'		=> 'Latitud',
+	'ACP_USERMAP_DATABASE_LNG'		=> 'Longitud',
+	'ACP_USERMAP_DATABASE_EDIT'		=> 'Editar',
+	'ACP_USERMAP_DATABASE_NOENTRY'	=> 'Datos no disponibles',
+	'ACP_USERMAP_DATABASE_NEW'		=> 'Nueva entrada en la base de datos',
+	'ACP_USERMAP_DATABASE_CC_EXP'	=> 'Ingresa el código de país con las dos letras mayúsculas del país al que se asignará esta entrada.',
+	'ACP_USERMAP_DATABASE_ZC_EXP'	=> 'Por favor ingresa el código postal al que se asignará esta entrada, solo se permiten letras mayúsculas, dígitos y guión.',
+	'ACP_USERMAP_DATABASE_ERROR'	=> '¡El campo >%1$s< no debe de estar vacío!',
+	'ACP_USERMAP_DATABASE_BIG_ERR'	=> '¡El campo no debe estar vacío!',
+	'ACP_USERMAP_DATABASE_SUCCESS'	=> 'Los cambios en la base de datos interna han sido guardados con éxito.',
+	'ACP_USERMAP_DATABASE_INVALID'	=> 'Esta combinación de código de país y código postal ya existe, ¡no debe usarse por segunda vez!<br>
 										¡No se pudo guardar esta entrada en la base de datos interna!',
+'ACP_USERMAP_CONFIRM_DELETE'	=> '¿Estás realmente seguro de que desea eliminar este elemento de la base de datos?<br>
+										<strong>¡Esto elimina el elemento permanentemente de la base de datos y no se puede deshacer!</strong>',
+	// POI tab
+'ACP_USERMAP_POI'				=> 'Administración de PDI',
+'ACP_USERMAP_POI_EXPLAIN'		=> 'En esta tabla se enumeran todos los PDI ingresados hasta ahora en la base de datos.<br>
+										Debajo de esta tabla puedes insertar una nueva entrada, además, aquí es donde puedes editar una entrada existente después de seleccionar
+										el enlace de <i>Edit</i> en la última columna de cada línea en la tabla.<br>
+										Al seleccionar el enlace de <i>Eliminar</i> puedes eliminar una entrada de la base de datos.',
+'ACP_USERMAP_POI_DATA'			=> 'Entradas de PDI actualmente disponibles',
+'ACP_USERMAP_POI_NAME'			=> 'Nombre de PDI',
+'ACP_USERMAP_POI_POPUP'			=> 'Descripción de PDI',
+'ACP_USERMAP_POI_ICON'			=> 'Archivo de icono',
+'ACP_USERMAP_POI_NEW'			=> 'Ingrese un nuevo PDI',
+'ACP_USERMAP_POI_EDIT'			=> 'Editar PDI seleccionado',
+'ACP_USERMAP_POI_NAME_EXP'		=> 'El nombre de este PDI se muestra como una burbuja de información sobre herramientas cuando el puntero del mouse se mueve sobre el marcador de PDI.',
+'ACP_USERMAP_POI_POPUP_EXP'		=> 'La descripción de este PDI puede usar hasta 500 caracteres y puede contener BBCode.<br>
+										Este texto se muestra en una burbuja emergente cuando se hace clic en el marcador de PDI con el puntero del mouse.',
+'ACP_USERMAP_POI_ICON_EXP'		=> 'Para facilitar una categorización básica de tus PDI, puedes seleccionar entre los iconos de marcadores con diferentes colores.',
 	// ERROR LOG
-'LOG_USERMAP_GOOGLE_ERROR'		=> 'La API de Google Maps falló durante la ejecución con el siguiente mensaje de error<br>» %s',
+	'LOG_USERMAP_GOOGLE_ERROR'		=> 'La API de Google Maps falló durante la ejecución con el siguiente mensaje de error<br>» %s',
 	// UCP
 	'MOT_ZIP'						=> 'Código Postal',
 	'MOT_ZIP_EXP'					=> 'Por favor ingresa el código postal de tu ubicación para ser listado en el Mapa del Usuario.<br>(Solo mayúsculas, números y guiones)',
